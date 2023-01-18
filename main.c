@@ -21,7 +21,7 @@ int screenMenu();
 void optMenu();
 void menu();
 int preguntaCantVoletos(int);
-void genVoletos(struct voletos);
+void genVoletos();
 
 
     /* Ejecucion menu */
@@ -69,17 +69,29 @@ void genVoletos(struct voletos);
     
     /* Generar voletos */
 
-    void genVoletos(struct voletos voletos) {
-        int i = 0;
+    void genVoletos() {
+        int i = 0, j = 0;
         int cantidad_voletos = 0;
+        char voletos[20][7];
+        char voleto[7];
         cantidad_voletos = preguntaCantVoletos(cantidad_voletos);
         // printf("cantidad: %i", cantidad_voletos);
         // getch();
         do {
-            voletos.voletos[i][0] = rand() % cantidad_voletos+1;
+            do
+            {
+                voleto[j] = rand() % cantidad_voletos + 1;
+            } while (j < 7);
+            for (int k = 0; k < 7; k++) {
+                if (strcmp(voletos[k], voleto) != 0) {
+                    strcpy(voletos[i], voleto);
+                }
+            }
             i++;
         } while (i < cantidad_voletos);        
     }
+
+        /* Cantidad voletos a generar */
 
         int preguntaCantVoletos(int cant) {
             printf("Introduce la cantidad de voletos: ");
