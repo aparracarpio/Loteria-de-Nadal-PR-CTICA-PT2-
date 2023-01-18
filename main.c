@@ -69,6 +69,8 @@ void genVoletos();
     
     /* Generar voletos */
 
+    /* La funcion tiene que generarme 20 numeros de voletos no repetidos*/
+
     void genVoletos() {
         int i = 0, j = 0;
         int cantidad_voletos = 0;
